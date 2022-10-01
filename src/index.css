@@ -1,20 +1,45 @@
-/* TODO make this a styled component */
-html {
-  font-size: 32px;
-}
-body {
-  margin: 0;
-  font-family:'Lato', 'sans-serif';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1;
-}
 
 * {
   margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family:'Lato', 'sans-serif';
+  line-height: 1;
+}
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width:480px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width:1280px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media (min-width:1920px) {
+  html {
+    font-size: 24px;
+  }
+}
+
+
+@media (min-width:2560px) {
+  html {
+    font-size: 28px;
+  }
+}
+
+@media (min-width:3840px) {
+  html {
+    font-size: 32px;
+  }
 }

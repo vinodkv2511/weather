@@ -19,8 +19,8 @@ export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`
   box-shadow: 0 0 1rem 0.25rem ${colors.shadow};
   border-radius: ${tokens.borderRadius};
   background: ${ props => props.isNight ? colors.nightBackground : colors.dayBackground};
-  width: 35ch;
-  padding: 1rem;
+  width: 33ch;
+  padding: 1.5rem 0.75rem;
   color: ${colors.white};
   gap: 1.5rem;
 

@@ -12,7 +12,7 @@ function App() {
         feelsLikeTemparature={22} 
         temparatureUnit={'C'} 
         iconCode={'09d'} 
-        description={'Cloudy'}
+        description={'thunderstorm with heavy drizzle'}
       />
     </div>
   );
