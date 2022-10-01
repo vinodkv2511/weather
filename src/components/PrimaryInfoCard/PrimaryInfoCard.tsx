@@ -2,7 +2,7 @@ import React, { FunctionComponent, useMemo } from "react";
 import DateTimeDisplay from "../DateTimeDisplay/DateTimeDisplay";
 import TemperatureDisplay from "../TemperatureDisplay/TemperatureDisplay";
 import WeatherIcon from "../WeatherIcon/WeatherIcon";
-import { StyledFeelsLikeDisplay, StyledLocationAndTimeStampContainer, StyledPrimaryInfoCard } from "./PrimaryInfoCard.styles";
+import { StyledFeelsLikeDisplay, StyledLocationAndTimeStampContainer, StyledPrimaryInfoCard, StyledTemperatureInfo } from "./PrimaryInfoCard.styles";
 import { PrimaryInfoCardProps } from "./PrimaryInfoCard.types";
 
 
@@ -30,11 +30,11 @@ const PrimaryInfoCard:FunctionComponent<PrimaryInfoCardProps> = (props) => {
         <DateTimeDisplay timestamp={timestamp} timezoneOffset={timezoneOffset} displayMode={'Time'}/>
       </StyledLocationAndTimeStampContainer>
       <WeatherIcon iconId={iconCode}/>
-      <div>
+      <StyledTemperatureInfo>
         <TemperatureDisplay temperature={temperature} units={temparatureUnit} fontSize='4rem'/>
         {/* TODO Localize */}
         <StyledFeelsLikeDisplay>Feels like <TemperatureDisplay temperature={feelsLikeTemparature} units={temparatureUnit} fontSize="0.8rem"/></StyledFeelsLikeDisplay>
-      </div>
+      </StyledTemperatureInfo>
       <p>{description}</p>
 
     </StyledPrimaryInfoCard>

@@ -8,7 +8,7 @@ export const StyledLocationAndTimeStampContainer = styled.div`
   display: flex;
   align-self: stretch;
   justify-content: space-between;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 `;
 
 export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`
@@ -19,10 +19,12 @@ export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`
   box-shadow: 0 0 1rem 0.25rem ${colors.shadow};
   border-radius: ${tokens.borderRadius};
   background: ${ props => props.isNight ? colors.nightBackground : colors.dayBackground};
-  width: 33ch;
+  width: 15rem;
+  flex-grow: 0;
   padding: 1.5rem 0.75rem;
   color: ${colors.white};
   gap: 1.5rem;
+  font-size: 0.8rem;
 
   ${StyledWeatherIcon} {
     filter: ${props => props.isNight ? `drop-shadow(0 0 0.75rem ${colors.shadowWhite})` : `drop-shadow(0 0 0.75rem ${colors.shadow})`} ;
@@ -31,10 +33,17 @@ export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`
 
 export const StyledFeelsLikeDisplay = styled.p`
   font-size: 0.8rem;
-  margin-top: 0.5rem;
   ${StyledTemperatureDisplay} {
     display: inline;
   }
+`
+
+export const StyledTemperatureInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
 `
 
 
