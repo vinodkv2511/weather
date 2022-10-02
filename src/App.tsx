@@ -2,6 +2,7 @@ import './App.css';
 import InfoDisplay from './components/InfoDisplay/InfoDisplay';
 import PrimaryInfoCard from './components/PrimaryInfoCard/PrimaryInfoCard';
 import SecondaryInfoCard from './components/SecondaryInfoCard/SecondaryInfoCard';
+import WeatherGlanceCard from './components/WeatherGlanceCard/WeatherGlanceCard';
 
 function App() {
   return (
@@ -26,6 +27,12 @@ function App() {
         {label: 'UV Index', value: '5'},
         {label: 'Atmospheric Pressure', value: '18', units: 'bar'}
       ]} />
+
+
+      <WeatherGlanceCard date={{
+          timestamp: 1664639523,
+          timezoneOffset: 19800
+        }} iconCode='09d' temperature={{temperature: 24, units: 'C'}} />
     </div>
   );
 }
