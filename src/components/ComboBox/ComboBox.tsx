@@ -23,13 +23,14 @@ const ComboBox: FunctionComponent<ComboBoxProps> = (props) => {
   const inputId = useMemo(()=> uuidv4(), [])
   const [open, setOpen] = useState(false);
 
-  const [inputValue, setInputValue] = useState(selectedOption?.value || '');
+  const [inputValue, setInputValue] = useState('');
 
   const handleClick: MouseEventHandler<HTMLDivElement> = () => {
     inputRef.current?.focus();
   }
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+
     setInputValue(e.target.value);
     onChange(e.target.value);
     if(!open){
@@ -43,11 +44,10 @@ const ComboBox: FunctionComponent<ComboBoxProps> = (props) => {
   }
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
-    if(comboBoxRef.current?.contains(event.target as Node)) {
-      return;
+    if(!comboBoxRef.current?.contains(event.target as Node)) {
+      setInputValue(selectedOption?.value || '')
+      setOpen(false);
     }
-    setInputValue(selectedOption?.value || '')
-    setOpen(false);
   }, [selectedOption])
 
   const handleBlur = useCallback((e: any) => {

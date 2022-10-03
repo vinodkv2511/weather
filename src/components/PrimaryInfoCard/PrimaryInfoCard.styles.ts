@@ -9,6 +9,10 @@ export const StyledLocationAndTimeStampContainer = styled.div`
   align-self: stretch;
   justify-content: space-between;
   font-size: 0.8rem;
+
+  p:last-child{
+    text-align: end;
+  }
 `;
 
 export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`

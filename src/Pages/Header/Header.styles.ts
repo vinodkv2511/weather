@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors, tokens } from "../../utils/styleTokens";
-import { StyledComboBox } from "../ComboBox/ComboBox.styles";
+import { StyledComboBox } from "../../components/ComboBox/ComboBox.styles";
 
 
 export const StyledHeader = styled.header`

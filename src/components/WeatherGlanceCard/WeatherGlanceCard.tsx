@@ -13,7 +13,7 @@ const WeatherGlanceCard:FunctionComponent<WeatherGlanceCardProps> = (props) => {
   return <StyledWeatherGlanceCard>
       <DateTimeDisplay {...date} displayMode='Date' />
       <WeatherIcon iconId={iconCode} />
-      <TemperatureDisplay {...temperature }/>
+      <TemperatureDisplay {...temperature } fontSize={'1.1rem'}/>
   </StyledWeatherGlanceCard>
 }
 

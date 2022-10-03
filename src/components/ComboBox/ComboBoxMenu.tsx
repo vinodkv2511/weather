@@ -10,7 +10,7 @@ const ComboBoxMenu: FunctionComponent<Pick<ComboBoxProps, 'onSelect' | 'options'
   return <StyledComboBoxMenu>
     {
       options.map(option => {
-        return <li><StyledMenuItem key={option.id} onClick={()=>{onSelect(option)}}>{option.value}</StyledMenuItem></li>
+        return <li key={option.id} ><StyledMenuItem onClick={()=>{onSelect(option)}}>{option.value}</StyledMenuItem></li>
       })
     }
   </StyledComboBoxMenu>
