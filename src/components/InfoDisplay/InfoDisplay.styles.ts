@@ -21,13 +21,13 @@ export const StyledInfoDisplay = styled.div`
   }
 
   ${StyledValue} {
-    font-family: ${tokens.secondaryFontFamily};
+    font-family: ${tokens.primaryFontFamily};
     font-weight: bold;
     font-size: 2rem;
     
     ${StyledUnits} {
       font-size: 0.8rem;
-      font-family: ${tokens.primaryFontFamily};
+      font-family: ${tokens.secondaryFontFamily};
       font-weight: normal;
       margin-inline-start: 0.2rem;
     }

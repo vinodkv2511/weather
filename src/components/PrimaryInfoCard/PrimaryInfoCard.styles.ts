@@ -23,7 +23,7 @@ export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`
   flex-grow: 0;
   padding: 1.5rem 0.75rem;
   color: ${colors.white};
-  gap: 1.5rem;
+  gap: 1.2rem;
   font-size: 0.8rem;
 
   ${StyledWeatherIcon} {

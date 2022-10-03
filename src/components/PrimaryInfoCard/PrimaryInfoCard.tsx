@@ -27,7 +27,7 @@ const PrimaryInfoCard:FunctionComponent<PrimaryInfoCardProps> = (props) => {
     <StyledPrimaryInfoCard isNight={isNight}>
       <StyledLocationAndTimeStampContainer>
         <p>{location}</p>
-        <DateTimeDisplay timestamp={timestamp} timezoneOffset={timezoneOffset} displayMode={'Time'}/>
+        <DateTimeDisplay timestamp={timestamp} timezoneOffset={timezoneOffset} displayMode={'DateTime'}/>
       </StyledLocationAndTimeStampContainer>
       <WeatherIcon iconId={iconCode}/>
       <StyledTemperatureInfo>

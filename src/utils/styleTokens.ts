@@ -6,10 +6,12 @@ export const colors = {
   shadowWhite: 'rgba(255,255,255,0.25)',
   white: '#feffff',
   dullText: '#bfbfc3',
+  brandPrimary: '#efa609'
 }
 
 export const tokens = {
   borderRadius: '1rem',
   primaryFontFamily: '"Montserrat", "sans-serif"',
   secondaryFontFamily: '"Lato", "sans-serif"',
+  logoFontFamily: '"Pacifico", cursive',
 }
