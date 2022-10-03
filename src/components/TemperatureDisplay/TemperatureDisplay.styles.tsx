@@ -3,7 +3,7 @@ import { tokens } from "../../utils/styleTokens";
 import { TemperatureDisplayProps } from "./TemperatureDisplay.types";
 
 
-export const StyledTemperatureDisplay = styled.p<{fontSize: TemperatureDisplayProps['fontSize']}>`
+export const StyledTemperatureDisplay = styled.span<{fontSize: TemperatureDisplayProps['fontSize']}>`
   font-family: ${tokens.primaryFontFamily};
   font-weight: bold;
   font-size: ${props => props.fontSize || '2rem'};
