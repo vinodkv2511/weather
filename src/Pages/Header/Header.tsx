@@ -32,12 +32,11 @@ const Header: FunctionComponent = () => {
   }
 
   const handleGeoLocationSuccess = (position: GeolocationPosition) => {
-    console.log('Success ', position.coords);
     setGeoLocationData(position.coords);
   }
 
   const handleGeoLocationFailure = (error: GeolocationPositionError) => {
-    console.log(error);
+    console.error(error);
   }
 
   const selectedOption = useMemo(() => {
@@ -47,7 +46,6 @@ const Header: FunctionComponent = () => {
 
   useEffect(() => {
     if(!selectedLocation && reverseLocationData && reverseLocationData.length > 0) {
-      console.log("Reverse location data ", reverseLocationData);
       dispatch(setLocation(reverseLocationData[0]));
     }
   }, [selectedLocation, reverseLocationData, dispatch])
