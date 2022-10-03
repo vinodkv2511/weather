@@ -1,9 +1,8 @@
-import { FunctionComponent, MouseEventHandler, useRef, useMemo, useState, useEffect, ChangeEventHandler, FocusEvent, useCallback } from "react";
+import { FunctionComponent, MouseEventHandler, useRef, useMemo, useState, useEffect, ChangeEventHandler, useCallback } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import debounce from 'lodash.debounce';
 import Loader from "../Loader/Loader";
 import { StyledComboBox, StyledIcon, StyledInput } from "./ComboBox.styles";
-import { ComboBoxProps, MenuItem } from "./ComboBox.types";
+import { ComboBoxProps } from "./ComboBox.types";
 import ComboBoxMenu from "./ComboBoxMenu";
 
 const ComboBox: FunctionComponent<ComboBoxProps> = (props) => {
