@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { StyledHeader, StyledLogo, StyledLogoContainer } from "./Header.styles";
 import logo from '../../assets/WeatherIcons/SVG/01d.svg';
 import locationIcon from '../../assets/location_pin.svg';
@@ -7,6 +7,8 @@ import { MenuItem } from "../ComboBox/ComboBox.types";
 
 
 const Header: FunctionComponent = () => {
+
+  const [selectedLocation, setSelectedLocation] = useState<MenuItem>();
 
   return <StyledHeader>
     <StyledLogoContainer>
@@ -18,7 +20,8 @@ const Header: FunctionComponent = () => {
       console.log('On CHANGE ', value);
     } } onSelect={function (value: MenuItem): void {
       console.log('On Select ', value);
-    } } showLoader={false} />
+      setSelectedLocation(value);
+    } } showLoader={false} selectedOption={selectedLocation} />
   </StyledHeader>
 }
 

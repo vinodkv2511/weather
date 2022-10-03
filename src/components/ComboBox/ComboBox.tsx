@@ -1,4 +1,4 @@
-import { FunctionComponent, MouseEventHandler, useRef, useMemo, useState, useEffect } from "react";
+import { FunctionComponent, MouseEventHandler, useRef, useMemo, useState, useEffect, ChangeEventHandler, FocusEvent, useCallback } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import debounce from 'lodash.debounce';
 import Loader from "../Loader/Loader";
@@ -20,30 +20,47 @@ const ComboBox: FunctionComponent<ComboBoxProps> = (props) => {
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const comboBoxRef = useRef<HTMLDivElement>(null);
   const inputId = useMemo(()=> uuidv4(), [])
   const [open, setOpen] = useState(false);
+
+  const [inputValue, setInputValue] = useState(selectedOption?.value || '');
 
   const handleClick: MouseEventHandler<HTMLDivElement> = () => {
     inputRef.current?.focus();
   }
 
-  const handleInputChange = debounce((e) => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setInputValue(e.target.value);
     onChange(e.target.value);
-    setOpen(true);
-  }, 250);
+    if(!open){
+      setOpen(true);
+    }
+  };
 
   const handleOnSelect: ComboBoxProps['onSelect'] = (option) => {
     setOpen(false);
     onSelect(option);
   }
 
-  const handleClickOutside = () => {
-    if(inputRef.current){
-      inputRef.current.value = selectedOption?.value || '';
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if(comboBoxRef.current?.contains(event.target as Node)) {
+      return;
     }
+    setInputValue(selectedOption?.value || '')
     setOpen(false);
-  }
+  }, [selectedOption])
 
+  const handleBlur = useCallback((e: any) => {
+    if(!comboBoxRef.current?.contains(e.relatedTarget)) {
+      setInputValue(selectedOption?.value || '');
+      setOpen(false);
+    }
+  }, [selectedOption])
+
+  useEffect(()=>{
+    setInputValue(selectedOption?.value || '');
+  }, [selectedOption])
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -51,12 +68,26 @@ const ComboBox: FunctionComponent<ComboBoxProps> = (props) => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  })
+  }, [handleClickOutside]);
 
-  return <StyledComboBox showLoader={showLoader} onClick={handleClick}>
+  useEffect(() => {
+    const inputElement = inputRef.current;
+    inputElement?.addEventListener('focusout', handleBlur);
+    return () => {
+      inputElement?.addEventListener('focusout', handleBlur);
+    }
+  }, [handleBlur])
+
+  return <StyledComboBox showLoader={showLoader} onClick={handleClick} ref={comboBoxRef}>
     {icon && <StyledIcon src={icon} alt=""/> }
     <label htmlFor={inputId}>{label}</label>
-    <StyledInput placeholder={placeholder} ref={inputRef} id={inputId} onChange={handleInputChange} onBlur={handleClickOutside}/>
+    <StyledInput
+      placeholder={placeholder}
+      ref={inputRef}
+      id={inputId}
+      onChange={handleInputChange}
+      value={inputValue}
+    />
     {showLoader && <Loader inline />}
     {
       (open && !showLoader && options.length > 0) &&
