@@ -2,14 +2,11 @@ import { FunctionComponent } from "react";
 import PrimaryInfoCard from "../../components/PrimaryInfoCard/PrimaryInfoCard";
 import SecondaryInfoCard from "../../components/SecondaryInfoCard/SecondaryInfoCard";
 import WeatherGlanceCard from "../../components/WeatherGlanceCard/WeatherGlanceCard";
-import { StyledCurrentWeatherContainer, StyledDailyForecastContainer, StyledDashboard, StyledGreeting } from "./Dashboard.styles";
+import { StyledCurrentWeatherContainer, StyledDailyForecastContainer, StyledDashboard } from "./Dashboard.styles";
 
 
 const Dashboard: FunctionComponent = () => {
   return <StyledDashboard>
-    <StyledGreeting>
-      Welcome!
-    </StyledGreeting>
     <StyledCurrentWeatherContainer>
       <PrimaryInfoCard 
         location={'Hyderabad'} 

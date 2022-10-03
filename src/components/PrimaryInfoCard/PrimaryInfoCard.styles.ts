@@ -27,6 +27,7 @@ export const StyledPrimaryInfoCard = styled.div<{isNight: boolean}>`
   font-size: 0.8rem;
 
   ${StyledWeatherIcon} {
+    aspect-ratio: 1;
     filter: ${props => props.isNight ? `drop-shadow(0 0 0.75rem ${colors.shadowWhite})` : `drop-shadow(0 0 0.75rem ${colors.shadow})`} ;
   }
 `;

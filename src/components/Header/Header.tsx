@@ -1,6 +1,9 @@
 import { FunctionComponent } from "react";
-import { StyledHeader, StyledLocationContainer, StyledLogo, StyledLogoContainer } from "./Header.styles";
+import { StyledHeader, StyledLogo, StyledLogoContainer } from "./Header.styles";
 import logo from '../../assets/WeatherIcons/SVG/01d.svg';
+import locationIcon from '../../assets/location_pin.svg';
+import ComboBox from "../ComboBox/ComboBox";
+import { MenuItem } from "../ComboBox/ComboBox.types";
 
 
 const Header: FunctionComponent = () => {
@@ -10,13 +13,12 @@ const Header: FunctionComponent = () => {
       <StyledLogo src={logo} alt='logo' />
       Weather
     </StyledLogoContainer>
-    <StyledLocationContainer>
-      {/* TODO Add icon */}
-      {/* TODO Localise */}
-      <p>Selected location</p>
-      {/* Search input */}
-      <input />
-    </StyledLocationContainer>
+
+    <ComboBox icon={locationIcon} label={'Location'} placeholder={'Search for a location'} options={[{id: '1', value: 'Test'}, {id: '2', value: 'Test2'}, {id: '3', value: 'Test3'}]} onChange={function (value: string): void {
+      console.log('On CHANGE ', value);
+    } } onSelect={function (value: MenuItem): void {
+      console.log('On Select ', value);
+    } } showLoader={false} />
   </StyledHeader>
 }
 
